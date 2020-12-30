@@ -2,27 +2,30 @@ using System.Collections.Generic;
 using CommandLine;
 using CommandLine.Text;
 
-[Verb("parser", HelpText = "Test all the options for parsing")]
-public class ParserOptions
+namespace Proto
 {
-    [Option('l', "local", HelpText = "A flag that does nothing")]
-    public bool Local { get; set; }
-    [Value(0, MetaName = "NamelessString", HelpText = "A string that does not need a param name")]
-    public string NamelessString { get; set; }
-    // [Option('f', "files", HelpText = "A list of files")]
-    [Option]
-    public IEnumerable<string> Files { get; set; }
-    [Usage(ApplicationAlias = "Proto")]
-    public static IEnumerable<Example> Examples
+    [Verb("parser", HelpText = "Test all the options for parsing")]
+    public class ParserOptions
     {
-        get
+        [Option('l', "local", HelpText = "A flag that does nothing")]
+        public bool Local { get; set; }
+        [Value(0, MetaName = "NamelessString", HelpText = "A string that does not need a param name")]
+        public string NamelessString { get; set; }
+        // [Option('f', "files", HelpText = "A list of files")]
+        [Option]
+        public IEnumerable<string> Files { get; set; }
+        [Usage(ApplicationAlias = "Proto")]
+        public static IEnumerable<Example> Examples
         {
-            yield return new Example("Normal scenario", new ParserOptions
+            get
             {
-                Local = true,
-                NamelessString = "MyNamelessString",
-                Files = new string[] { "file1.txt", "file2.txt" }
-            });
+                yield return new Example("Normal scenario", new ParserOptions
+                {
+                    Local = true,
+                    NamelessString = "MyNamelessString",
+                    Files = new string[] { "file1.txt", "file2.txt" }
+                });
+            }
         }
     }
 }
