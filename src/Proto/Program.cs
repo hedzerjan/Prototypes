@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using CommandLine;
-using Proto.Parser;
+using Proto.Trials;
 
 namespace Proto
 {
@@ -33,7 +33,7 @@ namespace Proto
                     ParserTrial.Run(c);
                     break;
                 case AwaiterOptions c:
-                    await Trials.AwaiterTrial.Run(c);
+                    await AwaiterTrial.Run(c);
                     break;
             }
         }

@@ -14,4 +14,4 @@ Every trial should get its own `Verb`, the options should be a separate Options 
 # Todo
 * [ ] Create the awaiter trial.
 * [x] Create a gitignore file.
-* [ ] Add the project to version control.
+* [x] Add the project to version control.

@@ -1,6 +1,6 @@
 using System;
 
-namespace Proto.Parser
+namespace Proto.Trials
 {
     public class ParserTrial
     {
