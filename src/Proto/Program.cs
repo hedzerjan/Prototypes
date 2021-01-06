@@ -12,7 +12,8 @@ namespace Proto
     {
         static async Task Main(string[] args)
         {
-            if (args.Length == 0) args = new string[] { "parser", "-l", "DingDong", "--files", "file1.txt" };
+            // if (args.Length == 0) args = new string[] { "parser", "-l", "DingDong", "--files", "file1.txt" };
+            if (args.Length == 0) args = new string[] { "dependencyinjection"};
             Console.WriteLine($"Args: {string.Join(' ', args.Select(x => $"\"{x}\""))}");
             var types = LoadVerbs();
             await CommandLine.Parser.Default.ParseArguments(args, types)
@@ -34,6 +35,9 @@ namespace Proto
                     break;
                 case AwaiterOptions c:
                     await AwaiterTrial.Run(c);
+                    break;
+                case DependencyInjectionOptions c:
+                    DependencyInjectionTrial.Run(c);
                     break;
             }
         }

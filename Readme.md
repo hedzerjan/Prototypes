@@ -12,6 +12,8 @@ As mentioned above, the app is set up as a console app with a commandline parser
 Every trial should get its own `Verb`, the options should be a separate Options class in the Options directory. The trial should be started from the `Program.Run()` method.
 
 # Todo
-* [ ] Create the awaiter trial.
+* [x] Create the awaiter trial.
 * [x] Create a gitignore file.
 * [x] Add the project to version control.
+* [x] Create a DI trial.
+* [ ] Throw an exception when no 'runner' is available
