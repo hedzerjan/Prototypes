@@ -63,6 +63,17 @@ namespace Proto.Commands
             pubOne.Publish();
             pubTwo.Publish();
         }
+
+        public static ILogger GetLogger(string name)
+        {
+            using var factory = LoggerFactory.Create(b =>
+            {
+                b.SetMinimumLevel(LogLevel.Trace).AddSimpleConsole(opts =>
+                    opts.TimestampFormat = "HH:mm:ss:fff "
+                );
+            });
+            return factory.CreateLogger(name);
+        }
     }
     public class CustomEventArgs : EventArgs
     {
@@ -103,15 +114,7 @@ namespace Proto.Commands
         public MSSubscriber(string id, MSPublisher pub)
         {
             _id = id;
-            using (var factory = LoggerFactory.Create(b =>
-            {
-                b.SetMinimumLevel(LogLevel.Trace).AddSimpleConsole(opts =>
-                    opts.TimestampFormat = "HH:mm:ss:fff "
-                );
-            }))
-            {
-                logger = factory.CreateLogger("MSSubscriber");
-            }
+            logger = EventsCommand.GetLogger("MSSubscriber");
             // Subscribe to the event
             pub.RaiseCustomEvent += HandleCustomEvent;
         }
@@ -140,11 +143,7 @@ namespace Proto.Commands
         public Subscriber()
         {
             Publisher.OnString += GetTheName;
-            using var factory = LoggerFactory.Create(b =>
-            {
-                b.SetMinimumLevel(LogLevel.Trace).AddSimpleConsole();
-            });
-            logger = factory.CreateLogger("Subscriber");
+            logger = EventsCommand.GetLogger("Subscriber");
         }
 
         private void GetTheName(string obj)
