@@ -7,7 +7,8 @@ using Spectre.Cli.Extensions.DependencyInjection;
 var serviceCollection = new ServiceCollection()
     .AddLogging(configure =>
             configure
-                .AddSimpleConsole(opts => {
+                .AddSimpleConsole(opts =>
+                {
                     opts.TimestampFormat = "HH:mm:ss:fff ";
                 })
     );
@@ -27,8 +28,11 @@ app.Configure(
                 .WithDescription("Show what happens in a state machine.")
                 .WithExample(new[] { "awaiter" });
         config.AddCommand<EventsCommand>("events")
-                .WithDescription("Show two different ways to handle events")
-                .WithExample(new[] { "events" });
+               .WithDescription("Show two different ways to handle events")
+               .WithExample(new[] { "events" });
+        config.AddCommand<EnumsCommand>("enums")
+                 .WithDescription("Show some examples with enumbs")
+                 .WithExample(new[] { "enums" });
 
     });
 
