@@ -2,9 +2,7 @@ using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
-using Spectre.Console;
 using Spectre.Console.Cli;
-using Spectre.Console.Extensions.Logging;
 
 namespace Proto.Commands
 {

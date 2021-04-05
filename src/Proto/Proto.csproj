@@ -13,7 +13,6 @@
     <PackageReference Include="Spectre.Cli.Extensions.DependencyInjection" Version="0.4.0" />
     <PackageReference Include="Spectre.Console" Version="0.38.0" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
-    <PackageReference Include="Spectre.Console.Extensions.Logging" Version="0.2.1" />
   </ItemGroup>
 
 </Project>
